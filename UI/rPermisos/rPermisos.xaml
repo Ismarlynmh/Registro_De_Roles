@@ -1,0 +1,66 @@
+﻿<Window x:Class="Registro_De_Roles.UI.rPermisos.rPermisos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Registro_De_Roles.UI.rPermisos"
+        mc:Ignorable="d"
+       Title="Registrar Permisos" Height="320" Width="350" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/permiso.png">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+            <!--Permiso Id-->
+            <Label Content="Permiso Id" FontSize="15"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="PermisoIdTextBox" Height="20" Width="200" Text="{Binding PermisoId}"  HorizontalAlignment="Left" Margin="5,0"/>
+                <Button Name="BuscarButton" Width="60" Height="20" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/lupa.png" />
+
+                        <Label Content="Buscar"  FontSize="12" Padding="-1"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <!--Nombre-->
+            <Label Content="Nombre" FontSize="15"/>
+            <TextBox Name="NombreTextBox" Height="20" Width="265" Text="{Binding Nombre}" HorizontalAlignment="Left" Margin="5,0"/>
+
+            <!--Descripción-->
+            <Label Content="Descripción" FontSize="15"/>
+            <TextBox Name="DescripciónTextBox" Height="20" Width="265" Text="{Binding Descripcion}" HorizontalAlignment="Left" Margin="5,0"/>
+
+            <!--Veces Asignado-->
+            <Label Content="Veces Asignado" FontSize="15"/>
+            <TextBox Name="VecesAsignadoTextBox" Height="20" Width="265" IsReadOnly="True" Text="{Binding VecesAsignado}" HorizontalAlignment="Left" Margin="5,0"/>
+
+            <!--Panel de botones-->
+            <StackPanel Orientation="Horizontal" Width="223" Margin="0, 20">
+                <!--Nuevo-->
+                <Button Name="NuevoButton" FontSize="11" Height="20" Click="NuevoButton_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/nueva-pagina.png" />
+                        <Label Content="Nuevo" FontSize="12" Padding="-1"/>
+
+                    </StackPanel>
+                </Button>
+                <!--Guardar-->
+                <Button Name="GuardarButton" Height="20"  FontSize="11" Click="GuardarButton_Click" Margin="5,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                       <Image Source="/Resources/guardar.png" />
+
+                        <Label Content="Guardar" FontSize="12" Padding="-1"/>
+                    </StackPanel>
+                </Button>
+                <!--Eliminar-->
+                <Button Name="EliminarButton" Height="20" FontSize="11"  Click="EliminarButton_Click" Margin="5,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/boton-eliminar.png" />
+                        <Label Content="Eliminar" FontSize="12" Padding="-1"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

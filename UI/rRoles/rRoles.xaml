@@ -1,0 +1,95 @@
+﻿<Window x:Class="Registro_De_Roles.UI.rRoles.rRoles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Registro_De_Roles.UI"
+        mc:Ignorable="d"
+        Title="Registrar Roles" Height="560" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/documento-registrado.png">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+            <!--Rol Id-->
+            <Label Content="Rol Id" FontSize="15"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="RolIdTextBox" Height="20" Width="200" Text="{Binding RolId}"  HorizontalAlignment="Left" Margin="5,0"/>
+                <Button Name="BuscarButton" Width="60" Height="20" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/lupa.png" />
+                        <Label Content="Buscar"  FontSize="12" Padding="-1"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <!--Fecha Creacion-->
+            <Label Content="Fecha Creación" FontStyle="Oblique" FontFamily="Cursive"  FontSize="13"/>
+            <DatePicker Name="FechaCreacionDatePicker" Width="265" HorizontalAlignment="Left" Margin="5,0" SelectedDate="{Binding FechaCreacion}"/>
+
+            <!--Descripcion-->
+            <Label Content="Descripción" FontSize="15"/>
+            <TextBox Name="DescripcionDatePicker" Width="265" Height="20" HorizontalAlignment="Left" Margin="5,0" Text="{Binding Descripcion}"/>
+
+            <!--Es acctivo-->
+            <CheckBox Content="Activo" HorizontalAlignment="Left" Margin="5,5,0,0" IsChecked="{Binding EsActivo}"/>
+
+
+            <GroupBox Header="Permisos" FontSize="13" BorderBrush="Blue" Margin="0,6,0,0">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox Name="PermisoIdComboBox" Width="200" Margin="5,0" HorizontalAlignment="Left" SelectedValue="{Binding PermisoId}" DropDownOpened="PermisoIdComboBox_DropDownOpened" SelectionChanged="PermisoIdComboBox_SelectionChanged"/>
+                        <Button Name="ButtonAgregar" Height="20" Width="65" Click="ButtonAgregar_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/signo de mas.png" />
+
+                                <Label Content="Agregar" FontSize="12" Padding="-1"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <DataGrid Name="DetalleDataGrid" Height="200" AutoGenerateColumns="False" ItemsSource="{Binding Detalle}" AlternatingRowBackground="#F47EFF" Margin="0,5,0,0" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Permiso" Width="2*" Binding="{Binding Permisos.Nombre}"/>
+                            <DataGridTextColumn Header="Descripción" Width="2*" Binding="{Binding Permisos.Descripcion}"/>
+                            <DataGridTextColumn Header="Veces Asignado"  Width="2*" Binding="{Binding Permisos.VecesAsignado}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <!--Boton Remover-->
+                    <Button Name="RemoverButton" Height="20" Width="70" HorizontalAlignment="Left" Click="RemoverButton_Click" Margin="0,4,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/remover-archivo.png" />
+                            <Label Content="Remover" FontSize="12" Padding="-1"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+
+
+            <!--Panel de botones-->
+            <StackPanel Orientation="Horizontal" Width="223" Margin="0, 20">
+                <!--Nuevo-->
+                <Button Name="NuevoButton" FontSize="11" Height="20" Click="NuevoButton_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/nueva-pagina.png" />
+                        <Label Content="Nuevo" FontSize="12" Padding="-1"/>
+
+                    </StackPanel>
+                </Button>
+                <!--Guardar-->
+                <Button Name="GuardarButton" Height="20"  FontSize="11" Click="GuardarButton_Click" Margin="5,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/guardar.png" />
+                        <Label Content="Guardar" FontSize="12" Padding="-1"/>
+                    </StackPanel>
+                </Button>
+                <!--Eliminar-->
+                <Button Name="EliminarButton" Height="20" FontSize="11"  Click="EliminarButton_Click" Margin="5,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/boton-eliminar.png" />
+                        <Label Content="Eliminar" FontSize="12" Padding="-1"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>
